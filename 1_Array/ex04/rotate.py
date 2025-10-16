@@ -7,7 +7,7 @@ def main():
     """
     """
     try:
-        img = Image.open("animal.jpeg")
+        img = Image.open("./animal.jpeg")
     except FileNotFoundError:
         raise FileNotFoundError("File not found.")
 
@@ -16,7 +16,15 @@ def main():
     array = np.expand_dims(np.array(greyimg), axis=2)
     print("The shape of image is : ", array.shape)
     print(array[:3, :3])
-    trans = np.transpose(array, (1, 0, 2))
+    # trans = np.transpose(array, (1, 0, 2))
+    h, w, c = array.shape
+    trans = np.zeros((w, h, c), dtype=array.dtype)
+
+    for i in range(h):
+        for j in range(w):
+            for k in range(c):
+                trans[j, i, k] = array[i, j, k]
+
     trans = trans.squeeze()
     print("New shape after Transpose: ", trans.shape)
     print(trans)
