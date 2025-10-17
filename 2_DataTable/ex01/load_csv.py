@@ -4,7 +4,8 @@ import os
 
 def load(path: str) -> pd.DataFrame:
     """
-    Load a .csv file, handle errors, print dimensions, and return the DataFrame.
+    Load a .csv file, handle errors, print dimensions,
+    and return the DataFrame.
     Return None if the path is bad, file not found, or data invalid.
     """
     if not isinstance(path, str):
