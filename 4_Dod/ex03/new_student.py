@@ -12,7 +12,7 @@ class Student:
     name: str
     surname: str
     active: bool = field(default=True, init=False)
-    id: str = field(default_factory=generate_id)
+    id: str = field(default_factory=generate_id, init=False)
     login: str = field(init=False)
 
     def __post_init__(self):
